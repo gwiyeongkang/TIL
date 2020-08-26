@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+haha
+
+<script>
+
+var a = ['안녕', 'Node.js', 55, 'Hello']
+/*
+0 안녕
+1 Node.js
+2 55
+3 Hello
+*/
+//배열 기능
+console.log(a.length) 
+//= 길이 상기 예제로는 4개
+console.log(a.indexOf("Node.js")) 
+//= 배열내 요소가 몇번째에 있는지 체크
+
+//배열 선언
+var b = new Array("2222", "nodejs")
+var c = [];
+
+
+for(var i = 0; i < a.length; i++)
+{
+    console.log(a[i]);
+}
+
+function test(a, b)
+{
+    console.log("a는 " + a)
+    console.log("b는 " + b)
+}
+test(10, "hahaha")
+
+function sum(a, b)
+{
+    return a + b;
+}
+var c = sum(10, 20);
+console.log(c);
+
+var sum_text = function()
+{
+    console.log("sum 함수를 호출했나요");
+}
+var c_text = sum_text();
+console.log(c_text);
+
+function Car(a, b)
+{
+    this.name = a;
+    this.color = b;
+    
+}
+
+var a = new Car( "현대", "노란")
+console.log(a.name);
+console.log(a.color);
+
+var b = new Car( "기아", "파란")
+console.log(b.name);
+console.log(b.color);
+
+function Car_var(a, b, c)
+{
+    this.name = a;
+    this.color = b;
+    var move = c;
+}
+
+var c = new Car_var("현대", "빨강", "전진")
+console.log(c.name);
+console.log(c.color);
+console.log(c.move);
+
+function Car_proto(a, b)
+{
+    this.name = a;
+    this.color = b;
+}
+Car_proto.prototype.move = function()
+{
+    console.log(this.name + "차이고 " + this.color + "색입니다.");
+}
+
+var d = new Car_proto("현대", "빨강")
+d.move()
+var e = new Car_proto("기아", "노란")
+e.move()
+
+//프로토타입
+var f = [1,2,3,4,10];
+Array.prototype.print = function()
+{
+    for(var i = 0; i < this.length; i++)
+    {
+        console.log(i);
+    }
+}
+f.print();
+
+//리터럴객체
+var g =
+{
+    'a' : 110,
+    'b' : 'hello',
+    'c' : function()
+    {
+        console.log(this.a)
+    }
+}
+console.log(typeof g)
+//output : Object
+
+Object.prototype.sum = function()
+{
+    console.log(g.a + 20);
+}
+
+g.sum();
+g.c();
+
+//조건문
+var h = 5
+if(h < 10)
+{
+    console.log('10보다 작습니다.')
+}
+if(h == '5')
+{
+    console.log('5입니다.')
+}
+if(h !== '5')
+{
+    //형태까지 비교
+    console.log('5가 아닙니다.')
+}
+else if(h <20)
+{
+    console.log('20보다 작습니다.')
+}
+else
+{
+    console.log('20보다 큽니다.')
+}
+
+switch("yellow")
+{
+    case "blue" :
+        console.log('파란색입니다.');
+        break;
+    case "green" :
+        console.log('초록색입니다.');
+        break;
+    default :
+        console.log('모든 벗어나는 조건');
+
+}
+
+function myNum (num)
+{
+    if(num < 10)
+    {
+        return "10보다 작습니다."
+    }
+    else
+    {
+        return "10보다 큽니다."
+    }
+}
+
+var num_test = myNum(12)
+console.log(num_test)
+
+//콜백함수 및 클로저
+//콜백
+//함수로 넘긴다.
+function test_callback(num, callback)
+{
+    console.log(num);
+    callback();
+}
+
+test_callback(1, function()
+{
+    console.log('콜백함수가 실행됩니다.')
+})
+//클로저
+//함수내에서 메모리처럼 사용
+function ex_cl()
+{
+    var num = 0;
+    return function()
+    {
+        num++;
+        console.log(num);
+    }
+}
+
+var test_cl = ex_cl();
+test_cl();
+test_cl();
+
+
+
+</script>
+    
+</body>
+</html>
